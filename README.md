@@ -19,3 +19,4 @@ Machine code is built in memory from the brainfuck program. The memory region is
 - Adjacent `>`, `<`, `+` or `-` are combined. For example `>>>` would become `lea bx,[rbx+3]`
 - The cmp part of `[` and `]` is skipped if the zero flag is still valid from a `+` or `-`
 - The tape is 65536 (2^16) bytes long and the tape pointer is stored in `bx` (16 bits), enabling quick wrapping
+- `[-]` and `[+]` emit `mov BYTE PTR [r12+rbx],0x0`
