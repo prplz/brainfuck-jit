@@ -74,6 +74,12 @@ int main(int argc, char *argv[]) {
     emit(0x01);
     emit(0x00);
 
+    // push rbx
+    emit(0x53);
+    // push r12
+    emit(0x41);
+    emit(0x54);
+
     // rbx will be tape pointer (16bit)
     // xor rbx,rbx
     emit(0x48);
@@ -275,6 +281,11 @@ int main(int argc, char *argv[]) {
         die("Unterminated loop.");
     }
 
+    // pop r12
+    emit(0x41);
+    emit(0x54);
+    // pop rbx
+    emit(0x5b);
     // leave
     emit(0xc9);
     // ret
